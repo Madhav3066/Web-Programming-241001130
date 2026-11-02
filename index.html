@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Attendance Pro</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="login" hidden>
+  <div class="hero">
+    <div class="ring"><svg viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="130" class="rb"/><circle id="rp" cx="150" cy="150" r="130" class="rp" transform="rotate(-90 150 150)" stroke-dasharray="0 817"/></svg>
+      <div class="rt"><b id="lt">--:--</b><small id="ld"></small></div></div>
+    <p>The workday, at a glance.</p>
+  </div>
+  <div class="formside">
+    <form id="card" class="card" onsubmit="doLogin(event)">
+      <h2>Sign in</h2><p class="sub">Use your username and password to continue.</p>
+      <label for="lu">Username</label><input id="lu" autocomplete="username" required>
+      <label for="lp">Password</label>
+      <div class="pw"><input id="lp" type="password" autocomplete="current-password" required><button type="button" onclick="togglePw()" id="pwb">Show</button></div>
+      <div class="err" id="lerr" role="alert"></div>
+      <button class="btn primary wide">Sign in</button>
+      <div class="demo">Demo accounts<div><button type="button" class="chip" onclick="fill('admin','admin123')">Manager</button><button type="button" class="chip" onclick="fill('priya','priya123')">Employee</button></div></div>
+    </form>
+  </div>
+</div>
+
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <div class="brand">Attendance<span>Pro</span></div>
+    <nav class="navs" id="navs" aria-label="Main"></nav>
+    <div class="me"><div class="av" id="mav"></div><div class="mi"><b id="mn"></b><small id="mr"></small></div></div>
+    <div class="sacts"><button onclick="toggleTheme()">Theme</button><button onclick="logout()">Sign out</button></div>
+  </aside>
+  <section class="main"><header class="top"><h1 id="title"></h1><div class="clock mono" id="clock"></div></header><div id="view"></div></section>
+</div>
+<div id="toasts" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
